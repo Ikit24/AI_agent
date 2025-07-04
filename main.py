@@ -34,6 +34,14 @@ def main():
 
     generate_content(client, messages, verbose)
 
+    for i in range(20):
+        all_strings = True
+        for canidate in candidates:
+            if isinstance(candidate.content, str):
+                all_strings = False
+                break
+        if all_strings:
+            break
 
 def generate_content(client, messages, verbose):
     response = client.models.generate_content(
